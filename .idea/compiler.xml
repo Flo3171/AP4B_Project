@@ -6,10 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AP4B_Project" />
         <module name="Projet" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AP4B_Project" target="15" />
       <module name="Projet" target="15" />
     </bytecodeTargetLevel>
   </component>
