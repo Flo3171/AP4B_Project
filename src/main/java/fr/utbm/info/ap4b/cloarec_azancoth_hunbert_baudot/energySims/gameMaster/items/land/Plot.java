@@ -1,6 +1,7 @@
 package fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.land;
 
-import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.building.Building;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.building.Construction;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.building.Tree;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.Resource;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.ResourceType;
 
@@ -15,7 +16,7 @@ public class Plot {
 
     private PlotType type;
     private boolean buildable;
-    private Building building;
+    private Construction construction;
     private Resource undergroundResources;
 
     public Plot(){
@@ -58,11 +59,11 @@ public class Plot {
             }
 
             this.buildable = true;
-            this.building = null;
+            this.construction = null;
 
             if (pattern < 3){
                 this.type = PlotType.GRASS;
-                this.building = new Building(); /* TODO : ajouter un arbre*/
+                this.construction = new Tree();
                 this.buildable = false;
 
             }
@@ -87,5 +88,22 @@ public class Plot {
             this.type = PlotType.WATER;
         }
 
+    }
+
+    public void build(Class constructionType) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+        if (constructionType.isAssignableFrom(Class.forName("Construction"))){
+            this.construction = (Construction) constructionType.newInstance();
+        }
+
+    }
+
+    void update(){
+        this.construction.update();
+    }
+
+    Resource destroy(){
+        Resource resource = this.construction.destroy();
+        this.construction = null;
+        return resource;
     }
 }
