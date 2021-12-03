@@ -1,7 +1,11 @@
 package fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.land;
 
-import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.building.Construction;
-import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.building.Tree;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.Construction;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.ConstructionType;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.Tree;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.building.*;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.connector.Pipe;
+import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.connector.Pylon;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.Resource;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.ResourceType;
 
@@ -90,20 +94,46 @@ public class Plot {
 
     }
 
-    public void build(Class constructionType) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-        if (constructionType.isAssignableFrom(Class.forName("Construction"))){
-            this.construction = (Construction) constructionType.newInstance();
+    @Override
+    public String toString() {
+        return construction.toString() ;
+    }
+
+    public Construction getConstruction() {
+        return construction;
+    }
+
+    public void build(ConstructionType constructionType){
+        switch (constructionType){
+            case TREE -> this.construction = new Tree();
+            case PYLON -> this.construction = new Pylon();
+            case PIPE -> this.construction = new Pipe();
+            case HOUSE -> this.construction = new House();
+            case NUCLEAR_PLANT -> this.construction = new NuclearPlant();
+            case COAL_PLANT -> this.construction = new CoalPlant();
+            case GAZ_PLANT -> this.construction = new GazPlant();
+            case OIL_PLANT -> this.construction = new OilPlant();
+            case WINDMILL -> this.construction = new WindMill();
+            case SOLAR_PANEL -> this.construction = new SolarPanel();
+
         }
+        this.buildable = false;
 
     }
 
     void update(){
-        this.construction.update();
+
+        if (this.construction != null) {
+            this.construction.update();
+        }
     }
 
     Resource destroy(){
         Resource resource = this.construction.destroy();
+        this.buildable = true;
         this.construction = null;
         return resource;
     }
+
+
 }
