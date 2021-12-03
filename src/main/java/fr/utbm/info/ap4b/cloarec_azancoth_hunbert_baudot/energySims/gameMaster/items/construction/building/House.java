@@ -10,8 +10,8 @@ public class House extends Building{
 
     private final int inhabitant;
 
-    public House(){
-        super(2, 1);
+    public House(Point position){
+        super(2, 1, position);
         this.setConstructionType(ConstructionType.HOUSE);
         this.inhabitant = 4;
         this.getInput().add(new Resource(2, ResourceType.WATER));

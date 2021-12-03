@@ -9,6 +9,7 @@ import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.i
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.Resource;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.ResourceType;
 
+import java.awt.*;
 import java.util.Random;
 
 /**
@@ -18,12 +19,14 @@ import java.util.Random;
  */
 public class Plot {
 
-    private PlotType type;
+    private final PlotType type;
     private boolean buildable;
+    private final Point position;
     private Construction construction;
     private Resource undergroundResources;
 
-    public Plot(){
+    public Plot(Point position){
+        this.position = position;
         Random r = new Random();
         int pattern = r.nextInt((10));
         if (pattern <  9){
@@ -67,7 +70,7 @@ public class Plot {
 
             if (pattern < 3){
                 this.type = PlotType.GRASS;
-                this.construction = new Tree();
+                this.construction = new Tree(this.position);
                 this.buildable = false;
 
             }
@@ -96,7 +99,13 @@ public class Plot {
 
     @Override
     public String toString() {
-        return construction.toString() ;
+        if (this.construction != null) {
+            return construction.toString() ;
+        }
+        else {
+            return "XX";
+        }
+
     }
 
     public Construction getConstruction() {
@@ -105,16 +114,16 @@ public class Plot {
 
     public void build(ConstructionType constructionType){
         switch (constructionType){
-            case TREE -> this.construction = new Tree();
-            case PYLON -> this.construction = new Pylon();
-            case PIPE -> this.construction = new Pipe();
-            case HOUSE -> this.construction = new House();
-            case NUCLEAR_PLANT -> this.construction = new NuclearPlant();
-            case COAL_PLANT -> this.construction = new CoalPlant();
-            case GAZ_PLANT -> this.construction = new GazPlant();
-            case OIL_PLANT -> this.construction = new OilPlant();
-            case WINDMILL -> this.construction = new WindMill();
-            case SOLAR_PANEL -> this.construction = new SolarPanel();
+            case TREE -> this.construction = new Tree(this.position);
+            case PYLON -> this.construction = new Pylon(this.position);
+            case PIPE -> this.construction = new Pipe(this.position);
+            case HOUSE -> this.construction = new House(this.position);
+            case NUCLEAR_PLANT -> this.construction = new NuclearPlant(this.position);
+            case COAL_PLANT -> this.construction = new CoalPlant(this.position);
+            case GAZ_PLANT -> this.construction = new GazPlant(this.position);
+            case OIL_PLANT -> this.construction = new OilPlant(this.position);
+            case WINDMILL -> this.construction = new WindMill(this.position);
+            case SOLAR_PANEL -> this.construction = new SolarPanel(this.position);
 
         }
         this.buildable = false;

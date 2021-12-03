@@ -34,21 +34,36 @@ public class Map {
         this.mapWidth = mapWidth;
         this.mapHeight = mapHeight;
         this.casesTable = new Plot[this.mapWidth][this.mapHeight];
-        for (int i = 0; i < this.mapWidth; i++) {
-            for (int j = 0; j < this.mapHeight; j++) {
-                this.casesTable[i][j] = new Plot();
+        for (int i = 0; i < this.mapHeight; i++) {
+            for (int j = 0; j < this.mapWidth; j++) {
+                this.casesTable[j][i] = new Plot(new Point(j, i));
             }
         }
     }
 
     @Override
     public String toString() {
-        return "Map :" +
+        StringBuilder value = new StringBuilder("Map :" +
                 "\nmapWidth=" + mapWidth +
                 ", \nmapHeight=" + mapHeight +
-                ", \ncasesTable=" + Arrays.toString(casesTable) +
-                ", \nelectricalNetworks=" + electricalNetworks +
-                ", \ninventory=" + inventory;
+                ", \ncasesTable=");
+        for (int i = 0; i < this.mapHeight; i++) {
+            value.append("\n ");
+            for (int j = 0; j < this.mapWidth; j++) {
+                value.append(this.casesTable[j][i].toString()).append(" ");
+            }
+
+        }
+
+        value.append("\nNetwork :" );
+        for (ElectricalNetwork network :
+                this.electricalNetworks) {
+            value.append("\n\t").append(network.toString());
+        }
+        value.append("\nInventory :").append(this.inventory.toString());
+
+
+        return value.toString();
     }
 
     public void build(Point position, ConstructionType constructionType) {

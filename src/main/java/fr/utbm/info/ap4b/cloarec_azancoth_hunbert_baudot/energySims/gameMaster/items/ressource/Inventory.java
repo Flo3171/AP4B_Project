@@ -1,5 +1,7 @@
 package fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource;
 
+import java.util.Arrays;
+
 public class Inventory {
     
     private Resource[] resources;
@@ -12,6 +14,16 @@ public class Inventory {
             this.resources[i] = new Resource(0, t);
             i ++;
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder value = new StringBuilder();
+        for (Resource resource:
+             this.resources) {
+            value.append("\n\t").append(resource.toString());
+        }
+        return value.toString();
     }
 
     public boolean addResource(Resource resource){

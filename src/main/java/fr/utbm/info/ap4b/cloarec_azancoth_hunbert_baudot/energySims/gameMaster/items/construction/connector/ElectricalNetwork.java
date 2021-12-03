@@ -17,5 +17,18 @@ public class ElectricalNetwork {
         this.availableElectricity = 0;
     }
 
-
+    @Override
+    public String toString() {
+        StringBuilder value = new StringBuilder("ElectricalNetwork : availableElectricity = " + this.availableElectricity + "\n\tPylon :");
+        for (Pylon pylon :
+                this.pylonList) {
+            value.append(pylon.toString()).append(pylon.getPosition().toString()).append(",  ");
+        }
+        value.append("\n\tBuilding :");
+        for (Building building :
+                this.buildingList) {
+            value.append(building.toString()).append(building.getPosition().toString()).append(", ");
+        }
+        return value.toString();
+    }
 }

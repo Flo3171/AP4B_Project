@@ -3,6 +3,7 @@ package fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.building.Building;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.Construction;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,8 @@ public abstract class Connector extends Construction {
     private List<Connector> connectorNeighbours;
     private List<Building> buildingNeighbours;
 
-    public Connector(){
+    public Connector(Point position){
+        super(position);
         this.connectorNeighbours = new ArrayList<>();
         this.buildingNeighbours = new ArrayList<>();
     }

@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class CoalPlant extends Building{
 
-    public CoalPlant() {
-        super(10, 10);
+    public CoalPlant(Point position) {
+        super(10, 10, position);
         this.setConstructionType(ConstructionType.COAL_PLANT);
     }
 

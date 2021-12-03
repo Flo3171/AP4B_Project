@@ -7,8 +7,9 @@ import java.awt.*;
 
 public class Tree extends Construction{
 
-    public Tree(){
-
+    public Tree(Point position){
+        super(position);
+        setConstructionType(ConstructionType.TREE);
     }
 
     @Override

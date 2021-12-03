@@ -10,6 +10,23 @@ public enum ResourceType {
     GAS,
     WOOD,
     EUROS,
-    SATISFACTION
+    SATISFACTION;
 
+    @Override
+    public String toString() {
+        switch (this){
+            case COAL ->{return "Coal";}
+            case IRON -> {return "Iron";}
+            case COPPER -> {return "Copper";}
+            case URANIUM -> {return "Uranium";}
+            case OIL -> {return "Oil";}
+            case WATER -> {return "Water";}
+            case GAS -> {return "Gas";}
+            case WOOD -> {return "Wood";}
+            case EUROS -> {return "Euros";}
+            case SATISFACTION -> {return "Satisfaction";}
+
+        }
+        return "";
+    }
 }

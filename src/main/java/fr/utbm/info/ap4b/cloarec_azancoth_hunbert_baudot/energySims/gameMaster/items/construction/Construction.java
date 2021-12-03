@@ -6,14 +6,21 @@ import java.awt.*;
 
 public abstract class Construction {
 
-    private Point position;
+    private final Point position;
 
     private ConstructionType constructionType;
 
+    public Construction(Point position){
+        this.position = position;
+    }
 
     @Override
     public String toString() {
         return constructionType.toString();
+    }
+
+    public Point getPosition() {
+        return position;
     }
 
     public void setConstructionType(ConstructionType constructionType) {

@@ -11,7 +11,7 @@ import java.awt.*;
 public class Main {
 
     public static void main(String[] args) {
-        Map m = new Map(5, 5);
+        Map m = new Map(8, 5);
 
         m.build(new Point(1,1), ConstructionType.PYLON);
 

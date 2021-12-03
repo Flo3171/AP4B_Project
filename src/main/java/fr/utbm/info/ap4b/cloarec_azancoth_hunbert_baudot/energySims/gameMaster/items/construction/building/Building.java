@@ -3,6 +3,7 @@ package fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.construction.Construction;
 import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.items.ressource.Resource;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,8 @@ public abstract class Building extends Construction {
     private List<Resource> input;
     private List<Resource> output;
 
-    public Building(float pollution, float electricityProduction){
+    public Building(float pollution, float electricityProduction, Point position){
+        super(position);
         this.pollution = pollution;
         this.electricityProduction = electricityProduction;
         this.input = new ArrayList<>();

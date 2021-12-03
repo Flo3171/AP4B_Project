@@ -4,7 +4,7 @@ import java.time.format.ResolverStyle;
 
 public class Resource {
     private double amount;
-    private ResourceType type;
+    private final ResourceType type;
 
     public Resource(double amount, ResourceType type){
         this.amount = amount;
@@ -15,8 +15,9 @@ public class Resource {
         return this.amount;
     }
 
-    public void setAmount(double amount){
-        this.amount = amount;
+    @Override
+    public String toString() {
+        return this.type.toString() + " : " + this.amount;
     }
 
     public ResourceType getType(){

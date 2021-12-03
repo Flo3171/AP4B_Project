@@ -6,8 +6,8 @@ import fr.utbm.info.ap4b.cloarec_azancoth_hunbert_baudot.energySims.gameMaster.i
 import java.awt.*;
 
 public class WindMill extends Building{
-    public WindMill() {
-        super(0, 2);
+    public WindMill(Point position) {
+        super(0, 2, position);
         this.setConstructionType(ConstructionType.WINDMILL);
     }
 

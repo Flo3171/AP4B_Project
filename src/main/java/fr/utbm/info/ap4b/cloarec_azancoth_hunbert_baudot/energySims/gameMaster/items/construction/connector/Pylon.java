@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class Pylon extends Connector{
 
-    public Pylon(){
-        super();
+    public Pylon(Point position){
+        super(position);
         this.setConstructionType(ConstructionType.PYLON);
 
     }

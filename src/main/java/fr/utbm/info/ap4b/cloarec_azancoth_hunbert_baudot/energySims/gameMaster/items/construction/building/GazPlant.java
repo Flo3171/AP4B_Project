@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class GazPlant extends Building{
 
-    public GazPlant() {
-        super(8, 10);
+    public GazPlant(Point position) {
+        super(8, 10, position);
         this.setConstructionType(ConstructionType.GAZ_PLANT);
     }
 

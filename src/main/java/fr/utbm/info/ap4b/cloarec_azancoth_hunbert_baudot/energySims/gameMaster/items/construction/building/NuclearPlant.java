@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class NuclearPlant extends Building{
 
-    public NuclearPlant(){
-        super(1, 30);
+    public NuclearPlant(Point position){
+        super(1, 30, position);
         this.setConstructionType(ConstructionType.NUCLEAR_PLANT);
     }
 

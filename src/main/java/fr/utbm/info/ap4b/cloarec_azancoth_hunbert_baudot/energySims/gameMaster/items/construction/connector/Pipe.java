@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class Pipe extends Connector{
 
-    public  Pipe(){
-        super();
+    public  Pipe(Point position){
+        super(position);
         this.setConstructionType(ConstructionType.PIPE);
     }
 

@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class SolarPanel extends Building{
 
-    public SolarPanel() {
-        super(0, 3);
+    public SolarPanel(Point position) {
+        super(0, 3, position);
         this.setConstructionType(ConstructionType.SOLAR_PANEL);
     }
 

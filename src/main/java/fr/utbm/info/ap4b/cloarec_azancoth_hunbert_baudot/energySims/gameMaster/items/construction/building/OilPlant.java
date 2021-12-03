@@ -7,8 +7,8 @@ import java.awt.*;
 
 public class OilPlant extends Building{
 
-    public OilPlant() {
-        super(8, 100);
+    public OilPlant(Point position) {
+        super(8, 100, position);
         this.setConstructionType(ConstructionType.OIL_PLANT);
     }
 
