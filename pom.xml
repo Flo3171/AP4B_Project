@@ -7,6 +7,13 @@
     <groupId>fr.utbm.info.ap4b</groupId>
     <artifactId>AP4B_Project</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-maven-archetypes</artifactId>
+            <version>0.0.6</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <maven.compiler.source>15</maven.compiler.source>
