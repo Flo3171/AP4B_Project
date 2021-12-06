@@ -106,17 +106,17 @@
                <children>
                   <ImageView accessibleRole="BUTTON" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../files/img_energie.png" />
+                        <Image url="@../../../../../../../../../../../files/img_energie.png" />
                      </image>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.rowIndex="1">
                      <image>
-                        <Image url="@../../files/img_energie.png" />
+                        <Image url="@../../../../../../../../../../../files/img_energie.png" />
                      </image>
                   </ImageView>
                   <ImageView accessibleRole="BUTTON" fitWidth="60.0" pickOnBounds="true" preserveRatio="true" smooth="false" GridPane.rowIndex="2">
                      <image>
-                        <Image url="@../../files/img_energie.png" />
+                        <Image url="@../../../../../../../../../../../files/img_energie.png" />
                      </image>
                   </ImageView>
                </children>
